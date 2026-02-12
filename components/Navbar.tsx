@@ -56,9 +56,9 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
         <button 
           onClick={() => scrollToSection('contact')}
-          className="px-6 py-2 nebula-accent text-white rounded-full text-xs font-bold transition-all hover:scale-105 active:scale-95 glow-nebula"
+          className="px-6 py-2 nebula-accent text-white rounded-full text-xs font-bold transition-all hover:scale-105 active:scale-95 glow-nebula shadow-lg shadow-purple-500/20"
         >
-          DOWNLOAD OPS
+          DOWNLOAD APP
         </button>
       </nav>
     </div>
