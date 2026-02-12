@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Target, Globe, ShieldCheck } from 'lucide-react';
 
@@ -27,20 +26,25 @@ const About: React.FC = () => {
 
           <div className="space-y-6">
             {[
-              { icon: <Target />, title: "Precision Mission", desc: "To accelerate innovation through modular lab automation and autonomous intelligence." },
-              { icon: <Globe />, title: "Scaleable Solutions", desc: "Developing hardware that works at the scale of microns up to global environmental grids." },
-              { icon: <ShieldCheck />, title: "Security Protocol", desc: "Our R&D is governed by encrypted ethical frameworks ensuring safe machine intelligence." }
-            ].map((item, idx) => (
-              <div key={idx} className="flex items-start gap-5 p-4 rounded-3xl glass-heavy border border-white/5 hover:border-purple-500/30 transition-all group">
-                <div className="mt-1 p-3 rounded-2xl bg-black/40 text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-all">
-                  {React.cloneElement(item.icon as React.ReactElement, { size: 24 })}
+              { icon: Target, title: "Precision Mission", desc: "To accelerate innovation through modular lab automation and autonomous intelligence." },
+              { icon: Globe, title: "Scaleable Solutions", desc: "Developing hardware that works at the scale of microns up to global environmental grids." },
+              { icon: ShieldCheck, title: "Security Protocol", desc: "Our R&D is governed by encrypted ethical frameworks ensuring safe machine intelligence." }
+            ].map((item, idx) => {
+              // Extract the component to render it with props directly
+              const Icon = item.icon;
+              return (
+                <div key={idx} className="flex items-start gap-5 p-4 rounded-3xl glass-heavy border border-white/5 hover:border-purple-500/30 transition-all group">
+                  <div className="mt-1 p-3 rounded-2xl bg-black/40 text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-all">
+                    {/* Fixed: Use component directly to avoid React.cloneElement typing issues */}
+                    <Icon size={24} />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold text-white mb-1 tracking-tight">{item.title}</h4>
+                    <p className="text-slate-400 leading-relaxed">{item.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-xl font-bold text-white mb-1 tracking-tight">{item.title}</h4>
-                  <p className="text-slate-400 leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
